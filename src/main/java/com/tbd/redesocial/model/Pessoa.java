@@ -8,17 +8,22 @@ import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
 import org.springframework.data.neo4j.core.schema.Relationship;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.tbd.redesocial.dto.PessoaDTO;
 
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Node
-@Data
+@Getter
+@Setter
+@EqualsAndHashCode(of = "id")
 @NoArgsConstructor
 public class Pessoa {
     
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
     private Long id;
 
     private String cpf;
@@ -32,6 +37,7 @@ public class Pessoa {
     private LocalDate dataNascimento;
     
     @Relationship(type = "AMIZADE")
+    @JsonIgnoreProperties("amizades")
     private List<Pessoa> amizades;
 
     public Pessoa(PessoaDTO dto) {
