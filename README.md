@@ -1,7 +1,7 @@
 # rede-social
 Trabalho de Tópicos em Bancos de dados, onde precisa ser criado uma rede social simples usando Neo4j.
 
-Para testar as APIs:
+Para testar a API:
 * Fazer o pull da imagem oficial do Neo4j no Docker:
 ```
 docker run --name neo4j -p 7474:7474 -p 7687:7687 -d -e NEO4J_AUTH=neo4j/password neo4j
