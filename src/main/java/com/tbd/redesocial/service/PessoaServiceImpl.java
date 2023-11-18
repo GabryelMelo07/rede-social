@@ -75,4 +75,8 @@ public class PessoaServiceImpl implements PessoaService {
         return pessoa;
     }
 
+    @Override
+    public List<Pessoa> listarAmigos(long pessoaId) {
+        return pessoaRepository.listarAmigos(pessoaId);
+    }
 }
